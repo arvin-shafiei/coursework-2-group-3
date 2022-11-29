@@ -82,3 +82,26 @@ var interval = setInterval(function () {
     }
 }, 500);
 
+function myFunction(value, index) {
+    for (let i = 0; i < ltcPrices.length; i++) {
+        if (!(i == index)) {
+
+        }
+      }
+  }
+// Sort out deals
+//const lowestCost = Math.min(ltcPrices[i]);
+//const heightCost = Math.max(ltcPrices[i]);
+
+let arbitrageDeals = [
+    {   
+        "buyExchange": "Undefined",
+        "buyAmount": 0,
+        "sellExchange": "Undefined",
+        "sellAmount": 0,
+    }
+]
+
+ltcPrices.every(isBelowThreshold, index)
+
+console.log(arbitrageDeals[0])
