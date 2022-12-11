@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Currency List</title>
+    <link href="https://bootswatch.com/5/pulse/bootstrap.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="Mainpage.css" media="screen" />
+
+
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"></script>
+    <style type="text/css">      
+      html, body, #container { 
+        width: 100%; height: 100%; margin: 0; padding: 0; 
+      } 
+    </style>
+
+</head>
+ 
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CoinAce</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Coin Arbitage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Trading</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Investing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">NFTs</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+ 
+<h1>CoinAce</h1>
+
+
+  
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center mt-3">
+    <div class="col lg-4">
+      <div class="card mb-3">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <p>
+              <span class="text-success fw-bold">Bitcoin</span>
+            </p>
+            
+           <div id="container"></div>
+              
+           <div id="chart_div" style="width: 900px; height: 500px;"></div>
+           
+            <p>
+              <span>Binance US</span>
+            </p>
+            <span class="fs-6 text text-muted">USD Market @ 71.42</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-3">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <p>
+              <span class="text-success fw-bold">Buy</span>
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+                <rect width="100%" height="100%" fill="#868e96"></rect>
+                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+              </svg>
+            <p>
+              <span>Binance US</span>
+            </p>
+            <span class="fs-6 text text-muted">USD Market @ 71.42</span>
+          </li>
+         
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-3">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <p>
+              <span class="text-success fw-bold">Buy</span>
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+                <rect width="100%" height="100%" fill="#868e96"></rect>
+                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+              </svg>
+            <p>
+              <span>Binance US</span>
+            </p>
+            <span class="fs-6 text text-muted">USD Market @ 71.42</span>
+          </li>
+          
+      </div>
+    </div>
+
+</body>
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+ 
+<script src="script.js"></script>
+<script src="mainpage.js"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  </script>
+</html>
