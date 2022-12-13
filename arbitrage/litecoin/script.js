@@ -11,7 +11,7 @@ const binance = 'https://www.binance.com/api/v3/ticker/price?symbol=LTCUSDT';
 const gemini = 'https://api.gemini.com/v1/pubticker/ltcusd';
 
 // Array to store coin prices in order of coinbase, coingecko, kraken, binance, gemini
-var ltcPrices = []
+var ltcPrices = [];
 
 // FETCH COINBASE PRICE
 fetch(coinBase)
@@ -39,7 +39,7 @@ fetch(coinGecko)
 fetch(kraken)
     .then((resp) => resp.json())
     .then(function (coinData) {
-        console.log(parseFloat(coinData.result.XLTCZUSD.b[0]) + " Kraken")
+        console.log(parseFloat(coinData.result.XLTCZUSD.b[0]) + " Kraken");
         ltcPrices[2] = parseFloat(coinData.result.XLTCZUSD.b[0]);
     })
     .catch(function (error) {
@@ -61,7 +61,7 @@ fetch(binance)
 fetch(gemini)
     .then((resp) => resp.json())
     .then(function (coinData) {
-        console.log(coinData.ask + " Gemini")
+        console.log(coinData.ask + " Gemini");
         ltcPrices[4] = parseFloat(coinData.ask);
     })
     .catch(function (error) {
@@ -72,9 +72,126 @@ fetch(gemini)
 const timeoutSeconds = 5
 var currentWait = 0.0;
 
+var dealIndex = 0;
+
+function determineCompanyName(index) {
+    let companyName = 'Undefined';
+    switch (index) {
+        case 0:
+            companyName = 'Coinbase';
+            return companyName;
+        case 1:
+            companyName = 'Coingecko';
+            return companyName;
+        case 2:
+            companyName = 'Kraken';
+            return companyName;
+        case 3:
+            companyName = 'Binance';
+            return companyName;
+        case 4:
+            companyName = 'Gemini';
+            return companyName;
+        default:
+            return companyName;
+    }
+}
+
+function companyToLink(companyName) {
+    let companyLink = 'https://example.com';
+    switch (companyName) {
+        case 'Coinbase':
+            companyLink = 'https://www.coinbase.com';
+            return companyLink;
+        case 'Coingecko':
+            companyLink = 'https://www.coingecko.com';
+            return companyLink;
+        case 'Kraken':
+            companyLink = 'https://www.kraken.com';
+            return companyLink;
+        case 'Binance':
+            companyLink = 'https://www.binance.com/en';
+            return companyLink;
+        case 'Gemini':
+            companyLink = 'https://www.gemini.com/uk';
+            return companyLink;
+        default:
+            return companyLink;
+    }
+}
+
+
+function myFunction() {
+    // Create an empty array to store the results
+    let results = [];
+
+    // Loop through the ltcPrices array
+    for (let i = 0; i < ltcPrices.length; i++) {
+        for (let j = 0; j < ltcPrices.length; j++) {
+            if (!(i == j)) {
+                // Calculate the percentage difference between the two prices
+                let diff = (((ltcPrices[j] - ltcPrices[i]) / ltcPrices[i])) * 100;
+
+                // Store the result in the results array
+                results.push({
+                    buyCompany: determineCompanyName(i),
+                    sellCompany: determineCompanyName(j),
+                    buyPrice: ltcPrices[i].toFixed(2),
+                    sellPrice: ltcPrices[j].toFixed(2),
+                    difference: diff.toFixed(2)
+                });
+            }
+        }
+    }
+
+    // Sort the results array in descending order of the percentage difference
+    results.sort((a, b) => b.difference - a.difference);
+
+    // Loop through the sorted results array and append the HTML elements to the page
+    for (let result of results) {
+        let text = `<div class="col lg-4">
+            <div class="card mb-3">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <p>
+                            <span class="text-success fw-bold">Buy</span>
+                        </p>
+                        <p>
+                            <span>` + result.buyCompany + `</span>
+                        </p>
+                        <span class="fs-6 text text-muted">USD Market @ ` + result.buyPrice + `</span>
+                    </li>
+                    <li class="list-group-item">
+                        <p>
+                            <span class="text-danger fw-bold">Sell</span>
+                        </p>
+                        <p>
+                            <span>` + result.sellCompany + `</span>
+                        </p>
+                        <span class="fs-6 text text-muted">USD Market @ `+ result.sellPrice + `</span>
+                    </li>
+                </ul>
+                <div class="card-body">
+                    <p>` + result.difference + `%</p>
+                    <button onclick="location.href='`+ companyToLink(result.buyCompany) + `'"  type="button" class="btn btn-success me-5">Buy</button>
+                    <button onclick="location.href='`+ companyToLink(result.sellCompany) + `'" type="button" class="btn btn-danger">Sell</button>
+                    </div>
+                    <div class="card-footer text-muted">Last updated ` + moment().startOf('second').fromNow() + `</div>
+                </div>
+            </div>`;
+
+
+        $("#coinArbritage").append(text);
+    }
+}
+
+
+
+
 var interval = setInterval(function () {
     if ((ltcPrices[0] && ltcPrices[1] && ltcPrices[2] && ltcPrices[3] && ltcPrices[4]) || currentWait >= 5) {
-        console.log(ltcPrices)
+        console.log(ltcPrices);
+        myFunction();
         clearInterval(interval);
     } else {
         console.log('Retriving LTC Prices');
@@ -82,26 +199,3 @@ var interval = setInterval(function () {
     }
 }, 500);
 
-function myFunction(value, index) {
-    for (let i = 0; i < ltcPrices.length; i++) {
-        if (!(i == index)) {
-
-        }
-      }
-  }
-// Sort out deals
-//const lowestCost = Math.min(ltcPrices[i]);
-//const heightCost = Math.max(ltcPrices[i]);
-
-let arbitrageDeals = [
-    {   
-        "buyExchange": "Undefined",
-        "buyAmount": 0,
-        "sellExchange": "Undefined",
-        "sellAmount": 0,
-    }
-]
-
-ltcPrices.every(isBelowThreshold, index)
-
-console.log(arbitrageDeals[0])
