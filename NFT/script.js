@@ -1,4 +1,4 @@
-const nftBase = 'https://api.coingecko.com/api/v3/nfts/list?per_page=15&page=1'; // URL for CoinGecko API to retrieve list of NFTs
+const nftBase = 'https://api.coingecko.com/api/v3/nfts/list?per_page=16&page=2'; // URL for CoinGecko API to retrieve list of NFTs
 const nftDetailsBase = 'https://api.coingecko.com/api/v3/nfts/'; // URL for CoinGecko API to retrieve details for individual NFTs
 
 let nftList, nftwData = [] // Arrays to store retrieved NFT data
@@ -41,7 +41,7 @@ function RequestNFTDetails() {
                 floor_price: "$" + nftDatq.floor_price.usd + " (" + nftDatq.floor_price.native_currency + " " + nftDatq.native_currency + ") ",
                 total_supply: nftDatq.total_supply
               });
-              if (i == 14) { // If all the details have been retrieved, call the displayCards function
+              if (i == 15) { // If all the details have been retrieved, call the displayCards function
                 displayCards();
               }
         })
@@ -63,7 +63,7 @@ function displayCards() {
                           <td>
                               <a target="_blank" href="https://opensea.io/assets?search[query]=` + result.contract_address +`">
                                   <img src="` + result.image + `"
-                                  class="rounded card_image_size" alt='nft' />
+                                  class="rounded card_image_size" alt='nft'/>
                               </a>
                           </td>
                           <td class="px-3">
@@ -83,7 +83,7 @@ function displayCards() {
                               <a target="_blank"
                                   href="https://opensea.io/assets?search[query]=` + result.contract_address +`"
                                   class="text-decoration-none btn btn-primary">
-                                  <b>BUY THIS ITEM</b>
+                                  <b>View Collection</b>
                                   <i class="fa fa-chevron-right"></i>
                               </a>
                           </td>
