@@ -38,10 +38,6 @@
             <a class="nav-link" href="#">NFTs</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
@@ -50,41 +46,45 @@
   <div class="container pt-5">
     <div class="row">
       <div class="col">
-        <div class="card" style="width: 18rem;">
+        <div class="card shadow text-center" style="width: 18rem;">
           <img src="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/1024/Bitcoin-BTC-icon.png"
-            class="card-img-top p-4" alt="..." height="275px">
+            class="card-img-top p-4" alt="Bitcoin Icon" height="275px">
           <div class="card-body">
             <h5 class="card-title">Bitcoin</h5>
-            <a href="bitcoin/index.html" class="btn btn-primary">View Arbitrage</a>
+            <a href="bitcoin/index.html" class="btn btn-primary rounded">View Arbitrage</a>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card" style="width: 18rem;">
+        <div class="card shadow text-center" style="width: 18rem;">
           <img src="https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG-Pic.png" class="card-img-top p-4"
-            alt="..." height="275px">
+            alt="Ethereum Icon" height="275px">
           <div class="card-body">
             <h5 class="card-title">Ethereum</h5>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="ethereum/index.html" class="btn btn-primary rounded">View Arbitrage</a>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card" style="width: 18rem;">
+        <div class="card shadow text-center" style="width: 18rem;">
           <img src="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/1024/Litecoin-LTC-icon.png"
-            class="card-img-top p-4" alt="..." height="275px">
+            class="card-img-top p-4" alt="Litecoin Icon" height="275px">
           <div class="card-body">
             <h5 class="card-title">Litcoin</h5>
-            <a href="#" class="btn btn-primary">View Arbitrage</a>
+            <a href="litecoin/index.html" class="btn btn-primary rounded">View Arbitrage</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="col pt-5">
-      <div class="card" style="width: 100%;">
-        <div class="card-body">
-          <h5 class="card-title text-center">Custom View</h5>
-          <a href="#" class="btn btn-primary">Extra Options</a>
+    <div class="col pt-5 text-center">
+      <div class="card p-4 shadow" style="width: 50%;margin:auto;">
+
+        <h1>Custom Ticker [BETA]</h1>
+        <form>
+          <input type="text" id="crypto_ticker" name="crypto_ticker" pattern="[A-Za-z]{3}" placeholder="BNB"><br><br>
+          <a href="#" class="btn btn-primary rounded">View Arbitrage</a>
+        </form>
+
         </div>
       </div>
     </div>

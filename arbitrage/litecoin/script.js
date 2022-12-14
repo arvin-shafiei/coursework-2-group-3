@@ -178,7 +178,7 @@ function myFunction() {
                     <button onclick="location.href='`+ companyToLink(result.buyCompany) + `'"  type="button" class="btn btn-success me-5">Buy</button>
                     <button onclick="location.href='`+ companyToLink(result.sellCompany) + `'" type="button" class="btn btn-danger">Sell</button>
                     </div>
-                    <div class="card-footer text-muted">Last updated ` + moment().startOf('second').fromNow() + `</div>
+                    <div class="card-footer text-muted">Updated @ ` + moment().format('MMMM Do YYYY, h:mm:ss a'); + `</div>
                 </div>
             </div>`;
 
