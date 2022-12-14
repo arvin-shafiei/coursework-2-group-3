@@ -1,81 +1,87 @@
-const coinBase = 'https://api.coingecko.com/api/v3/nfts/list?per_page=15&page=1';
+const nftBase = 'https://api.coingecko.com/api/v3/nfts/list?per_page=15&page=1';
 const nftDetailsBase = 'https://api.coingecko.com/api/v3/nfts/';
-
-let nftList = []
 const timeoutSeconds = 5
 var currentWait = 0.0;
-let nftwData = [];
 
-// FETCH COINBASE PRICE
-fetch(coinBase)
-    .then((resp) => resp.json())
-    .then(function (coinData) {
-        console.log(coinData);
-        nftList = coinData;
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
 
-function myFunction() {
-    console.log(nftList.length);
-    for (let i = 0; i < nftList.length; i++) {
-        console.log("monkey")
+let nftList, nftwData = []
 
-        if (nftList[i].id != '') {
-            console.log(nftList[i].id)
-            fetch(nftDetailsBase + nftList[i].id)
-                .then((resp) => resp.json())
-                .then(function (nftDatq) {
-                    console.log("Pushed")
-                    nftwData.push({
-                        name: nftDatq.name,
-                        asset_platform_id: nftDatq.asset_platform_id,
-                        image: nftDatq.image.small,
-                        floor_price: nftDatq.floor_price.usd + "(" + nftDatq.floor_price.native_currency + ")",
-                        total_supply: nftDatq.total_supply
-                    });
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
+function truncateString(string, limit) {
+    if (string.length > limit) {
+      return string.substring(0, limit) + "..."
+    } else {
+      return string
+    }
+  }
 
-            var myInterval = setInterval(function () {
-                if (nftwData[15]) {
-                    clearInterval(myInterval);
-                    console.log("hi")
-                    console.log(nftwData.length)
-                    for (let result of nftwData) {
-                        console.log("here??")
-                        const textExample = `<div class='col-lg-6'>
-        <div class="card"
-            style="width:100%;height:210px;min-height:200px;max-width:670px;box-shadow:0px 1px 6px rgba(0, 0, 0, 0.25);border-radius:5px;">
+fetch(nftBase)
+  .then((resp) => resp.json())
+  .then(function (nftData) {
+    console.log(nftData);
+    nftList = nftData;
+    RequestNFTDetails();
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+function RequestNFTDetails() {
+  for (let i = 0; i < nftList.length; i++) {
+    if (nftList[i].id != '') {
+      fetch(nftDetailsBase + nftList[i].id)
+        .then((resp) => resp.json())
+        .then(function (nftDatq) {
+            nftwData.push({
+                name: nftDatq.name,
+                description: truncateString(nftDatq.description, 180),
+                contract_address: nftDatq.contract_address,
+                asset_platform_id: nftDatq.asset_platform_id,
+                image: nftDatq.image.small,
+                native_currency: nftDatq.native_currency,
+                floor_price: "$" + nftDatq.floor_price.usd + " (" + nftDatq.floor_price.native_currency + " " + nftDatq.native_currency + ") ",
+                total_supply: nftDatq.total_supply
+              });
+              if (i == 14) {
+                displayCards();
+              }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });   
+    }
+}}
+
+ function displayCards() {
+  for (let result of nftwData) {
+    const cardText = `<div class='col-lg-6 p-1'>
+        <div class="card shadow-sm">
             <div>
-                <info-button style="position:absolute;top:5px;right:5px"></info-button>
+                <info-button></info-button>
                 <table>
                     <tr>
-                        <td style='width:39%;'>
-                            <a target="_blank"
-                                href="https://solanart.io/search/?token=Fg57RznsXDC8EhbwadQP1cSk18ZcDGYVGigRQdqFhJkq">
+                        <td>
+                            <a target="_blank" href="https://opensea.io/assets?search[query]=` + result.contract_address +`">
                                 <img src="` + result.image + `"
-                                    style='max-width:100%;height:206px;' alt='nft' />
+                                class="rounded card_image_size" alt='nft' />
                             </a>
                         </td>
-                        <td>
-                            <div class="text-left ml-3">
-                                <span class="badge badge-pill badge-light p-2 border">` + result.name + `</span>
-                            </div>
-                            <div class="excc" style="padding:20px;margin-bottom:20px;">
-                                <span class="float-left">` + result.name + `</span>
+                        <td class="px-3">
+                            <div>
+                                <span class="float-left"><b>` + result.name + `</b></span>
                                 <span class="float-right">
-                                    <img src="/inc/coin_logos_small/solana.png" alt='solana' />
-                                    9.3
+                                    ` +  result.floor_price +`
+                                    
                                 </span>
                             </div>
+
+                            <br>
+
+                            <div>
+                            <p> ` + result.description +` </p>
+                            </div>
                             <a target="_blank"
-                                href="https://solanart.io/search/?token=Fg57RznsXDC8EhbwadQP1cSk18ZcDGYVGigRQdqFhJkq"
-                                class="text-decoration-none btn btn-primary"
-                                style="width:90%;font-size:88%;-webkit-appearance:none;">
+                                href="https://opensea.io/assets?search[query]=` + result.contract_address +`"
+                                class="text-decoration-none btn btn-primary">
                                 <b>BUY THIS ITEM</b>
                                 <i class="fa fa-chevron-right"></i>
                             </a>
@@ -85,29 +91,6 @@ function myFunction() {
             </div>
         </div>
     </div>`
-                        $("#sus").append(textExample);
-                    }
-                    //console.log(nftwData[i].total_supply);
-                }
-
-            }, 1000);
-
-
-
-
-        }
-    }
+    $("#nftcards").append(cardText);
+  }
 }
-
-var interval = setInterval(function () {
-    if (nftList[0] || currentWait >= 5) {
-        // hi
-        myFunction();
-        clearInterval(interval);
-    }
-    else {
-        console.log('Retriving LTC Prices');
-        currentWait += 0.5;
-    }
-}, 500);
-
