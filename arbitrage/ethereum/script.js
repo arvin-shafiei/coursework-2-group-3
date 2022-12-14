@@ -4,21 +4,21 @@
 // https://www.binance.com/api/v3/ticker/price?symbol=LTCUSDT
 // https://api.gemini.com/v1/pubticker/ltcusd
 
-const coinBase = 'https://api.coinbase.com/v2/prices/LTC-USD/sell';
-const coinGecko = 'https://api.coingecko.com/api/v3/coins/litecoin?tickers=true';
-const kraken = 'https://api.kraken.com/0/public/Ticker?pair=LTCUSD';
-const binance = 'https://www.binance.com/api/v3/ticker/price?symbol=LTCUSDT';
-const gemini = 'https://api.gemini.com/v1/pubticker/ltcusd';
+const coinBase = 'https://api.coinbase.com/v2/prices/ETH-USD/sell';
+const coinGecko = 'https://api.coingecko.com/api/v3/coins/ethereum?tickers=true';
+const kraken = 'https://api.kraken.com/0/public/Ticker?pair=ETHUSD';
+const binance = 'https://www.binance.com/api/v3/ticker/price?symbol=ETHUSDT';
+const gemini = 'https://api.gemini.com/v1/pubticker/ethusd';
 
 // Array to store coin prices in order of coinbase, coingecko, kraken, binance, gemini
-var ltcPrices = [];
+var btcPrices = [];
 
 // FETCH COINBASE PRICE
 fetch(coinBase)
     .then((resp) => resp.json())
     .then(function (coinData) {
         console.log(coinData.data.amount + " Coinbase");
-        ltcPrices[0] = parseFloat(coinData.data.amount);
+        btcPrices[0] = parseFloat(coinData.data.amount);
     })
     .catch(function (error) {
         console.log(error);
@@ -29,7 +29,7 @@ fetch(coinGecko)
     .then((resp) => resp.json())
     .then(function (coinData) {
         console.log(coinData.market_data.current_price.usd + " CoinGeko");
-        ltcPrices[1] = coinData.market_data.current_price.usd;
+        btcPrices[1] = coinData.market_data.current_price.usd;
     })
     .catch(function (error) {
         console.log(error);
@@ -39,8 +39,8 @@ fetch(coinGecko)
 fetch(kraken)
     .then((resp) => resp.json())
     .then(function (coinData) {
-        console.log(parseFloat(coinData.result.XLTCZUSD.b[0]) + " Kraken");
-        ltcPrices[2] = parseFloat(coinData.result.XLTCZUSD.b[0]);
+        console.log(parseFloat(coinData.result.XETHZUSD.b[0]) + " Kraken");
+        btcPrices[2] = parseFloat(coinData.result.XETHZUSD.b[0]);
     })
     .catch(function (error) {
         console.log(error);
@@ -51,7 +51,7 @@ fetch(binance)
     .then((resp) => resp.json())
     .then(function (coinData) {
         console.log(parseFloat(coinData.price) + " Binance")
-        ltcPrices[3] = parseFloat(coinData.price);
+        btcPrices[3] = parseFloat(coinData.price);
     })
     .catch(function (error) {
         console.log(error);
@@ -62,7 +62,7 @@ fetch(gemini)
     .then((resp) => resp.json())
     .then(function (coinData) {
         console.log(coinData.ask + " Gemini");
-        ltcPrices[4] = parseFloat(coinData.ask);
+        btcPrices[4] = parseFloat(coinData.ask);
     })
     .catch(function (error) {
         console.log(error);
@@ -125,20 +125,20 @@ function myFunction() {
     // Create an empty array to store the results
     let results = [];
 
-    // Loop through the ltcPrices array
-    for (let i = 0; i < ltcPrices.length; i++) {
-        for (let j = 0; j < ltcPrices.length; j++) {
+    // Loop through the btcPrices array
+    for (let i = 0; i < btcPrices.length; i++) {
+        for (let j = 0; j < btcPrices.length; j++) {
             if (!(i == j)) {
-                if (ltcPrices[i] < ltcPrices[j]) {
+                if (btcPrices[i] < btcPrices[j]) {
                 // Calculate the percentage difference between the two prices
-                let diff = (((ltcPrices[j] - ltcPrices[i]) / ltcPrices[i])) * 100;
+                let diff = (((btcPrices[j] - btcPrices[i]) / btcPrices[i])) * 100;
 
                 // Store the result in the results array
                 results.push({
                     buyCompany: determineCompanyName(i),
                     sellCompany: determineCompanyName(j),
-                    buyPrice: ltcPrices[i].toFixed(2),
-                    sellPrice: ltcPrices[j].toFixed(2),
+                    buyPrice: btcPrices[i].toFixed(2),
+                    sellPrice: btcPrices[j].toFixed(2),
                     difference: diff.toFixed(2)
                 });
             }
@@ -188,12 +188,12 @@ function myFunction() {
 }
 
 var interval = setInterval(function () {
-    if ((ltcPrices[0] && ltcPrices[1] && ltcPrices[2] && ltcPrices[3] && ltcPrices[4]) || currentWait >= 5) {
-        console.log(ltcPrices);
+    if ((btcPrices[0] && btcPrices[1] && btcPrices[2] && btcPrices[3] && btcPrices[4]) || currentWait >= 5) {
+        console.log(btcPrices);
         myFunction();
         clearInterval(interval);
     } else {
-        console.log('Retriving LTC Prices');
+        console.log('Retriving BTC Prices');
         currentWait += 0.5;
     }
 }, 500);
