@@ -130,18 +130,18 @@ function myFunction() {
         for (let j = 0; j < ethPrices.length; j++) {
             if (!(i == j)) {
                 if (ethPrices[i] < ethPrices[j]) {
-                // Calculate the percentage difference between the two prices
-                let diff = (((ethPrices[j] - ethPrices[i]) / ethPrices[i])) * 100;
+                    // Calculate the percentage difference between the two prices
+                    let diff = (((ethPrices[j] - ethPrices[i]) / ethPrices[i])) * 100;
 
-                // Store the result in the results array
-                results.push({
-                    buyCompany: determineCompanyName(i),
-                    sellCompany: determineCompanyName(j),
-                    buyPrice: ethPrices[i].toFixed(2),
-                    sellPrice: ethPrices[j].toFixed(2),
-                    difference: diff.toFixed(2)
-                });
-            }
+                    // Store the result in the results array
+                    results.push({
+                        buyCompany: determineCompanyName(i),
+                        sellCompany: determineCompanyName(j),
+                        buyPrice: ethPrices[i].toFixed(2),
+                        sellPrice: ethPrices[j].toFixed(2),
+                        difference: diff.toFixed(2)
+                    });
+                }
             }
         }
     }
