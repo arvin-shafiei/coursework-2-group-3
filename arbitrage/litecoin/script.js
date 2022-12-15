@@ -1,9 +1,3 @@
-// https://api.coinbase.com/v2/prices/LTC-USD/sell
-// https://api.coingecko.com/api/v3/coins/litecoin?tickers=true
-// https://api.kraken.com/0/public/Ticker?pair=LTCUSD
-// https://www.binance.com/api/v3/ticker/price?symbol=LTCUSDT
-// https://api.gemini.com/v1/pubticker/ltcusd
-
 const coinBase = 'https://api.coinbase.com/v2/prices/LTC-USD/sell';
 const coinGecko = 'https://api.coingecko.com/api/v3/coins/litecoin?tickers=true';
 const kraken = 'https://api.kraken.com/0/public/Ticker?pair=LTCUSD';
@@ -72,8 +66,6 @@ fetch(gemini)
 const timeoutSeconds = 5
 var currentWait = 0.0;
 
-var dealIndex = 0;
-
 function determineCompanyName(index) {
     let companyName = 'Undefined';
     switch (index) {
@@ -119,7 +111,6 @@ function companyToLink(companyName) {
             return companyLink;
     }
 }
-
 
 function myFunction() {
     // Create an empty array to store the results

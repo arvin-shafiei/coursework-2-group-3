@@ -1,9 +1,3 @@
-// https://api.coinbase.com/v2/prices/LTC-USD/sell
-// https://api.coingecko.com/api/v3/coins/litecoin?tickers=true
-// https://api.kraken.com/0/public/Ticker?pair=LTCUSD
-// https://www.binance.com/api/v3/ticker/price?symbol=LTCUSDT
-// https://api.gemini.com/v1/pubticker/ltcusd
-
 let url = window.location;
 var ticker = url.toString().split('?');
 ticker = ticker[1]
@@ -64,8 +58,6 @@ fetch(gemini)
 const timeoutSeconds = 5
 var currentWait = 0.0;
 
-var dealIndex = 0;
-
 function determineCompanyName(index) {
     let companyName = 'Undefined';
     switch (index) {
@@ -122,18 +114,18 @@ function myFunction() {
         for (let j = 0; j < customPrices.length; j++) {
             if (!(i == j)) {
                 if (customPrices[i] < customPrices[j]) {
-                // Calculate the percentage difference between the two prices
-                let diff = (((customPrices[j] - customPrices[i]) / customPrices[i])) * 100;
+                    // Calculate the percentage difference between the two prices
+                    let diff = (((customPrices[j] - customPrices[i]) / customPrices[i])) * 100;
 
-                // Store the result in the results array
-                results.push({
-                    buyCompany: determineCompanyName(i),
-                    sellCompany: determineCompanyName(j),
-                    buyPrice: customPrices[i].toFixed(2),
-                    sellPrice: customPrices[j].toFixed(2),
-                    difference: diff.toFixed(2)
-                });
-            }
+                    // Store the result in the results array
+                    results.push({
+                        buyCompany: determineCompanyName(i),
+                        sellCompany: determineCompanyName(j),
+                        buyPrice: customPrices[i].toFixed(2),
+                        sellPrice: customPrices[j].toFixed(2),
+                        difference: diff.toFixed(2)
+                    });
+                }
             }
         }
     }

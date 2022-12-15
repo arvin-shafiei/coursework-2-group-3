@@ -1,9 +1,3 @@
-// https://api.coinbase.com/v2/prices/LTC-USD/sell
-// https://api.coingecko.com/api/v3/coins/litecoin?tickers=true
-// https://api.kraken.com/0/public/Ticker?pair=LTCUSD
-// https://www.binance.com/api/v3/ticker/price?symbol=LTCUSDT
-// https://api.gemini.com/v1/pubticker/ltcusd
-
 const coinBase = 'https://api.coinbase.com/v2/prices/BTC-USD/sell';
 const coinGecko = 'https://api.coingecko.com/api/v3/coins/bitcoin?tickers=true';
 const kraken = 'https://api.kraken.com/0/public/Ticker?pair=BTCUSD';
@@ -72,8 +66,6 @@ fetch(gemini)
 const timeoutSeconds = 5
 var currentWait = 0.0;
 
-var dealIndex = 0;
-
 function determineCompanyName(index) {
     let companyName = 'Undefined';
     switch (index) {
@@ -130,18 +122,18 @@ function myFunction() {
         for (let j = 0; j < btcPrices.length; j++) {
             if (!(i == j)) {
                 if (btcPrices[i] < btcPrices[j]) {
-                // Calculate the percentage difference between the two prices
-                let diff = (((btcPrices[j] - btcPrices[i]) / btcPrices[i])) * 100;
+                    // Calculate the percentage difference between the two prices
+                    let diff = (((btcPrices[j] - btcPrices[i]) / btcPrices[i])) * 100;
 
-                // Store the result in the results array
-                results.push({
-                    buyCompany: determineCompanyName(i),
-                    sellCompany: determineCompanyName(j),
-                    buyPrice: btcPrices[i].toFixed(2),
-                    sellPrice: btcPrices[j].toFixed(2),
-                    difference: diff.toFixed(2)
-                });
-            }
+                    // Store the result in the results array
+                    results.push({
+                        buyCompany: determineCompanyName(i),
+                        sellCompany: determineCompanyName(j),
+                        buyPrice: btcPrices[i].toFixed(2),
+                        sellPrice: btcPrices[j].toFixed(2),
+                        difference: diff.toFixed(2)
+                    });
+                }
             }
         }
     }
