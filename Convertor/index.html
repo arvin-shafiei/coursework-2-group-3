@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Crypto Convertor</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Currency List</title>
+  <link href="https://bootswatch.com/5/pulse/bootstrap.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CoinAce</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Coin Arbitage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Trading</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Investing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">NFTs</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container p-5">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-item active">Convertor's</li>
+    </ol>
+
+    <div class="conversion-form p-5 text-center">
+      <h1>Crypto to USD Convertor</h1>
+      <form>
+        <div class="form-group pt-3 m-auto textbox-size">
+          <label for="crypto-select">Select a Cryptocurrency</label>
+          <select class="form-control" id="crypto-select">
+            <option>Bitcoin</option>
+            <option>Ethereum</option>
+            <option>Litecoin</option>
+          </select>
+        </div>
+        <div class="form-group pt-3 textbox-size">
+          <label for="crypto-amount">Enter Amount of Cryptocurrency</label>
+          <input type="number" class="form-control" id="crypto-amount" placeholder="0.00">
+        </div>
+        <button type="button" class="btn btn-primary mt-3" onclick="ConvertCrypto()">Convert</button>
+
+        <h6 class="pt-3">Converted Amount:</h6>
+        <h1>$<span id="ConvertAmount">0.00</span></h1>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3-org-chart@2.6.0/build/d3-org-chart.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
