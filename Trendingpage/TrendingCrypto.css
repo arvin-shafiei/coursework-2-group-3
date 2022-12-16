@@ -1,0 +1,32 @@
+.white-bg {
+    background-color: white;
+    color: black;
+}
+
+.black {
+    color: black;
+}
+
+.img-btc {
+    width: 60px;
+    height: 60px;
+}
+
+.desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 100px;
+}
+
+.buy-btn a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+}
+
+.buy-btn a:hover {
+    color: white;
+}
