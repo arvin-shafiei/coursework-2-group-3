@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
  
@@ -10,25 +13,35 @@
 
     <link rel="stylesheet" type="text/css" href="Mainpage.css" media="screen" />
 
-
     <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"></script>
-    <style type="text/css">      
-      html, body, #container { 
-        width: 100%; height: 100%; margin: 0; padding: 0; 
-      } 
-    </style>
+    
 
 </head>
  
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">CoinAce</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+  
+      <a class="navbar-brand" href="#">CoinAce <img
+  
+          src="https://cdn.discordapp.com/attachments/1024802734274269204/1053015163395117106/purple_ace.png"
+  
+          height="55px" width="35px"></a>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+  
+        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+  
         <span class="navbar-toggler-icon"></span>
+  
       </button>
+  
       <div class="collapse navbar-collapse" id="navbarColor01">
+  
         <ul class="navbar-nav me-auto">
+  
           <li class="nav-item">
             <a class="nav-link active" href="#">Home
               <span class="visually-hidden">(current)</span>
@@ -38,86 +51,304 @@
             <a class="nav-link" href="#">Coin Arbitage</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Trading</a>
+            <a class="nav-link" href="#">Trending</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Investing</a>
+            <a class="nav-link" href="#">Converter</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">NFTs</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
+       
       </div>
     </div>
   </nav>
  
-<h1>CoinAce</h1>
 
+<div class="card text-white bg-dark m-auto" style="max-width:70%;">
+  <div class="card-body">
+    <h1 class="card-title">About CoinAce</h1>
+    <h5 class="card-text">CoinAce is a cryptocurrency hub made for all your crypto needs! We provide information on the most trending cryptocurrencys and also the unknown gems so you never miss an opportunity!
+      Down the page are some of the biggest movers on the market, featured along with charts that allow you to track their value all the way back to their Inception, so your buying choices can be as informed as possible.</h5>
+    </div>
+    <div class="container container-fluid" >
+      <div class="row">
+        <div class="col">
+    <img src="https://blog.streetshares.com/hs-fs/hubfs/cryptocurrency-fb.jpg?width=1200&name=cryptocurrency-fb.jpg" height="300px" width="400px">
+    
+        </div>
+    </div>
+    </div>
+</div>
 
-  
-<div class="row row-cols-1 row-cols-md-3 mb-3 text-center mt-3">
-    <div class="col lg-4">
+<div class="card text-white bg-dark m-auto" style="max-width:70%;">
+<h3>
+
+Here are some of the services we offer:
+
+</h3>
+
+</div>
+
+<div class="col m-auto">
+<div class="S">
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active">Coin Arbitrage</a>
+  <a href="#" class="list-group-item list-group-item-action active">Trending Coins</a>
+  <a href="#" class="list-group-item list-group-item-action active">NFTs</a>
+  <a href="#" class="list-group-item list-group-item-action active">Converter</a>
+</div>
+</div>
+</div>
+
+    <div class="col m-auto">
       <div class="card mb-3">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <p>
-              <span class="text-success fw-bold">Bitcoin</span>
+              <span class="text-success fw-bold">Bitcoin (BTC)</span>
             </p>
             
            <div id="container"></div>
               
-           <div id="chart_div" style="width: 900px; height: 500px;"></div>
+           <div id="chart_btc" ></div>
            
             <p>
-              <span>Binance US</span>
+             
             </p>
-            <span class="fs-6 text text-muted">USD Market @ 71.42</span>
+           
           </li>
         </ul>
       </div>
     </div>
-    <div class="col">
+</div>
+<div>
+    <div class="col m-auto">
       <div class="card mb-3">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <p>
-              <span class="text-success fw-bold">Buy</span>
+              <span class="text-success fw-bold">Ethereum (ETH)</span>
             </p>
-            <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-                <rect width="100%" height="100%" fill="#868e96"></rect>
-                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-              </svg>
+
+            <div id="container1"></div>
+
+            <div id="chart_eth" ></div>
+
             <p>
-              <span>Binance US</span>
+             
             </p>
-            <span class="fs-6 text text-muted">USD Market @ 71.42</span>
+           
           </li>
-         
+        </ul>
+        </div>
       </div>
     </div>
-    <div class="col">
+    <div>
+    <div class="col m-auto">
       <div class="card mb-3">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <p>
-              <span class="text-success fw-bold">Buy</span>
+              <span class="text-success fw-bold">Litecoin (LTC)</span>
             </p>
-            <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-                <rect width="100%" height="100%" fill="#868e96"></rect>
-                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-              </svg>
+           
+            <div id="container2"></div>
+
+            <div id="chart_ltc" ></div>
+
             <p>
               <span>Binance US</span>
             </p>
-            <span class="fs-6 text text-muted">USD Market @ 71.42</span>
+           
           </li>
           
       </div>
     </div>
+  </div>
+  
+<!-- Footer -->
+
+<footer class="text-center text-lg-start bg-light text-muted">
+
+  <!-- Right -->
+
+  <div>
+
+    <a href="" class="me-4 text-reset">
+
+      <i class="fab fa-facebook-f"></i>
+
+    </a>
+
+    <a href="" class="me-4 text-reset">
+
+      <i class="fab fa-twitter"></i>
+
+    </a>
+
+    <a href="" class="me-4 text-reset">
+
+      <i class="fab fa-google"></i>
+
+    </a>
+
+    <a href="" class="me-4 text-reset">
+
+      <i class="fab fa-instagram"></i>
+
+    </a>
+
+    <a href="" class="me-4 text-reset">
+
+      <i class="fab fa-linkedin"></i>
+
+    </a>
+
+    <a href="" class="me-4 text-reset">
+
+      <i class="fab fa-github"></i>
+
+    </a>
+
+  </div>
+
+  <!-- Right -->
+
+  </section>
+
+  <!-- Section: Social media -->
+
+
+  <!-- Section: Links  -->
+
+  <section class="footer">
+
+    <div class="container text-center text-md-start mt-5">
+
+      <!-- Grid row -->
+
+      <div class="row mt-3">
+
+        <!-- Grid column -->
+
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-3">
+
+          <!-- Content -->
+
+          <h6 class="text-uppercase fw-bold mb-4">
+
+            <i class="fas fa-gem me-3"></i>CoinAce
+
+          </h6>
+
+          <p>
+
+            Description goes here! Description goes here! Description goes here! Description goes here! Description
+
+            goes here! Description goes here!
+
+          </p>
+
+        </div>
+
+        <!-- Grid column -->
+
+
+        <!-- Grid column -->
+
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-3">
+
+          <!-- Links -->
+
+          <h6 class="text-uppercase fw-bold mb-4">
+
+            Useful links
+
+          </h6>
+
+          <p>
+
+            <a href="#!" class="text-reset">Arbitrage</a>
+
+          </p>
+
+          <p>
+
+            <a href="#!" class="text-reset">NFT's</a>
+
+          </p>
+
+          <p>
+
+            <a href="#!" class="text-reset">Trending Crypto's</a>
+
+          </p>
+
+          <p>
+
+            <a href="#!" class="text-reset">Help</a>
+
+          </p>
+
+        </div>
+
+        <!-- Grid column -->
+
+
+        <!-- Grid column -->
+
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-3">
+
+          <!-- Links -->
+
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+
+          <p><i class="fas fa-home me-3"></i> Dundee, Scotland </p>
+
+          <p>
+
+            <i class="fas fa-envelope me-3"></i>
+
+            admin@coinace.com
+
+          </p>
+
+          <p><i class="fas fa-phone me-3"></i> +44 07123123123</p>
+
+        </div>
+
+        <!-- Grid column -->
+
+      </div>
+
+      <!-- Grid row -->
+
+    </div>
+
+  </section>
+
+  <!-- Section: Links  -->
+
+
+  <!-- Copyright -->
+
+  <div class="text-center p-4 bg-primary white text-white">
+
+    © 2022 Copyright:
+
+    <a class="text-reset fw-bold" href="https://arvin-shafiei.github.io/coursework-2-group-3/">CoinAce.com</a>
+
+  </div>
+
+  <!-- Copyright -->
+
+</footer>
+
+<!-- Footer -->
+
+
 
 </body>
  
@@ -125,12 +356,12 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
  
-<script src="script.js"></script>
+
 <script src="mainpage.js"></script>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
   google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawChart);
+ 
   </script>
 </html>
