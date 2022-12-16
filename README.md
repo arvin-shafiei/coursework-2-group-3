@@ -13,3 +13,7 @@ Farés Alshalabi
 
 Aaron Ahmed 
     - Trending Crypto
+   
+# Video Demo:
+https://youtu.be/hqb00zAk0vo
+    
