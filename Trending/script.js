@@ -28,7 +28,7 @@ function getData(url) {
       console.log(error);
     });
 }
-function myFunction() {
+function DisplayCards() {
 
   for (let result of trendinglist) {
     let text =
@@ -84,7 +84,7 @@ function initializeCharts(id, dataset) {
   console.log(dataset)
   new Chart(ctx, {
     type: 'line',
-    backgroundColor :'#9BD0F5',
+    backgroundColor: '#9BD0F5',
     data: {
       labels: ['1', '2', '3', '4', '5', '6'],
       datasets: [{
@@ -97,25 +97,25 @@ function initializeCharts(id, dataset) {
       }]
     },
     options: {
-      legend : {display:false},
+      legend: { display: false },
       responsive: true,
       scales: {
         xAxes: [{
-            gridLines: {
-                color: "",
-            }
+          gridLines: {
+            color: "",
+          }
         }],
         yAxes: [{
-            gridLines: {
-                color: "",
-            }   
+          gridLines: {
+            color: "",
+          }
         }]
-    }
+      }
     }
   });
 }
 setTimeout(() => {
-  myFunction();
+  DisplayCards();
 
 }, 3000);
 
