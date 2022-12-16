@@ -3,9 +3,7 @@ const btcApi = 'https://api.coinbase.com/v2/prices/BTC-USD/sell';
 const ethApi = 'https://api.coinbase.com/v2/prices/ETH-USD/sell';
 const ltcApi = 'https://api.coinbase.com/v2/prices/LTC-USD/sell';
 
-var btcPrice;
-var ethPrice;
-var ltcPrice;
+var btcPrice, ethPrice, ltcPrice;
 
 // Fetch coin prices from coinbase
 fetch(btcApi)
