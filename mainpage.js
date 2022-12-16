@@ -12,6 +12,7 @@
         return time;
       }
       
+      
       const coinGeckobtc = 'https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=usd&days=max';
       
       let dataTHing1 = []
