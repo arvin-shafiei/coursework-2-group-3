@@ -28,8 +28,8 @@ function getData(url) {
       console.log(error);
     });
 }
-function DisplayCards() {
 
+function displayCards() {
   for (let result of trendinglist) {
     let text =
       `<div class="col lg-4">
@@ -115,7 +115,7 @@ function initializeCharts(id, dataset) {
   });
 }
 setTimeout(() => {
-  DisplayCards();
+  displayCards();
 
 }, 3000);
 
