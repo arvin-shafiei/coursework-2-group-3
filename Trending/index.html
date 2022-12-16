@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Currency List</title>
     <link href="https://bootswatch.com/5/pulse/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,8 +16,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
         <div class="container-fluid">
-            <a class="navbar-brand" href="../index.html">CoinAce <img src="../Image Storage/purple ace.png"
-                    height="55px" width="35px"></a>
+            <a class="navbar-brand" href="index.html">CoinAce <img src="Image Storage/purple ace.png" height="55px"
+                    width="35px"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,19 +27,21 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../index.html">Home</a>
+                        <a class="nav-link active" href="index.html">Home
+                            <span class="visually-hidden">(current)</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../Arbitrage/">Coin Arbitage</a>
+                        <a class="nav-link" href="Arbitrage/index.html">Coin Arbitage</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../Trending/index.html">Trending</a>
+                        <a class="nav-link" href="Trending/index.html">Trending</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../Convertor/index.html">Converter</a>
+                        <a class="nav-link" href="Convertor/index.html">Converter</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../NFT/index.html">NFTs</a>
+                        <a class="nav-link" href="NFT/index.html">NFTs</a>
                     </li>
                 </ul>
             </div>
@@ -47,13 +50,8 @@
     </nav>
     <!-- Navbar End -->
 
-    <div class="container p-5">
-        <!-- Breadcrumbs Begin-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-            <li class="breadcrumb-item active">Trending</li>
-        </ol>
-        <!-- Breadcrumbs End-->
+
+    <div class="container">
         <div class="form-group">
             <h3 class="text-primary pt-3"><strong>Trending Cryptos</strong></h3>
             <h6 class="text-primary ">Some of the top trending coins</h6>
@@ -180,7 +178,6 @@
     <script src="https://cdn.jsdelivr.net/npm/d3-org-chart@2.6.0/build/d3-org-chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
